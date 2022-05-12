@@ -1,0 +1,53 @@
+### Me
+GET https://localhost:9999/users.me
+Authorization: Bearer {{token}}
+
+### Get All Users by Admin
+GET https://localhost:9999/users.getAll
+
+### Register
+POST https://localhost:9999/users.register
+Content-Type: application/json
+
+{
+  "login": "pasha",
+  "password": "secret"
+}
+
+> {%
+client.global.set('token', response.body.token);
+%}
+
+### Login
+POST https://localhost:9999/users.login
+Content-Type: application/json
+
+{
+  "login": "pasha",
+  "password": "secret"
+}
+
+> {%
+client.global.set('token', response.body.token);
+%}
+
+### Change Roles by Admin
+POST https://localhost:9999/users.changeRoles
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "login": "vasya",
+  "roles": ["TASKS_VIEW_ALL"]
+}
+
+### Create User by Admin (with Roles)
+POST https://localhost:9999/users.create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "login": "anya",
+  "password": "secret",
+  "roles": ["USERS_VIEW_ALL"]
+}
