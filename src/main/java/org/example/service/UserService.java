@@ -89,19 +89,14 @@ public class UserService {
                 hashedPassword,
                 new String[]{}
         ));
-        try {
-            final String token = createToken(saved);
-            return new UserRegisterResponseDTO(
-                    saved.getId(),
-                    saved.getLogin(),
-                    token
-            );
-        } catch (JOSEException e) {
-            throw new TokenGenerationException(e);
-        }
+        return new UserRegisterResponseDTO(
+                saved.getId(),
+                saved.getLogin()
+        );
+
     }
 
-    public LoginAuthentication authenticateByLoginAndPassword(final String login,final String password) {
+    public LoginAuthentication authenticateByLoginAndPassword(final String login, final String password) {
         final UserEntity entity = repository.findByLogin(login)
                 .orElseThrow(NotFoundException::new);
         if (!passwordEncoder.matches(password, entity.getPassword())) {
@@ -149,7 +144,7 @@ public class UserService {
         return jwt.serialize();
     }
 
-    public UserCreateResponseDTO create(final Authentication auth,final UserCreateRequestDTO requestData) {
+    public UserCreateResponseDTO create(final Authentication auth, final UserCreateRequestDTO requestData) {
         if (!auth.hasRole(Roles.USERS_EDIT_ALL)) {
             throw new ForbiddenException();
         }
@@ -172,7 +167,7 @@ public class UserService {
         );
     }
 
-    public UserChangeRolesResponseDTO changeRoles(final Authentication auth,final UserChangeRolesRequestDTO requestData) {
+    public UserChangeRolesResponseDTO changeRoles(final Authentication auth, final UserChangeRolesRequestDTO requestData) {
         if (!auth.hasRole(Roles.USERS_EDIT_ALL)) {
             throw new ForbiddenException();
         }

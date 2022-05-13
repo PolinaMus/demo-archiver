@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class UserRegisterResponseDTO {
     private long id;
     private String login;
-    private String token;
 }
