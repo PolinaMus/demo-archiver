@@ -136,7 +136,6 @@ public class UserService {
         final JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
                 .claim("id", entity.getId())
                 .subject(entity.getLogin())
-                .expirationTime(Date.from(now.plus(1, ChronoUnit.HOURS)))
                 .claim("roles", entity.getRoles())
                 .build();
         final SignedJWT jwt = new SignedJWT(header, claimsSet);
