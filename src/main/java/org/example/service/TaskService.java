@@ -102,13 +102,13 @@ public class TaskService {
         Files.copy(zipPath, stream);
     }
 
-    public List<TaskGetAllByAdminDTO> getAll(final Authentication auth) {
+    public List<TaskGetAllByAdminResponseDTO> getAll(final Authentication auth) {
         if (!auth.hasRole(Roles.TASKS_VIEW_ALL)) {
             throw new ForbiddenException();
         }
         return repository.getAll()
                 .stream()
-                .map(o -> new TaskGetAllByAdminDTO(
+                .map(o -> new TaskGetAllByAdminResponseDTO(
                         o.getId(),
                         o.getUserId(),
                         o.getUserLogin(),
@@ -118,12 +118,12 @@ public class TaskService {
                 ;
     }
 
-    public List<TaskGetByAdminDTO> getTaskByAdmin(final Authentication auth, final long userId) {
+    public List<TaskGetByAdminResponseDTO> getTaskByAdmin(final Authentication auth, final long userId) {
         if (!auth.hasRole(Roles.TASKS_VIEW_ALL)) {
             throw new ForbiddenException();
         }
         return repository.getTaskByAdmin(userId).stream()
-                .map(o -> new TaskGetByAdminDTO(
+                .map(o -> new TaskGetByAdminResponseDTO(
                         o.getId(),
                         o.getUserLogin(),
                         o.isStatus()

@@ -64,7 +64,7 @@ public class TaskController {
         final Authentication auth = (Authentication) req.getAttribute(
                 RequestAttributes.AUTH_ATTR
         );
-        final List<TaskGetAllByAdminDTO> responseData = service.getAll(auth);
+        final List<TaskGetAllByAdminResponseDTO> responseData = service.getAll(auth);
         resp.setContentType(ContentTypes.APPLICATION_JSON);
         resp.getWriter().write(gson.toJson(responseData));
     }
@@ -74,7 +74,7 @@ public class TaskController {
                 RequestAttributes.AUTH_ATTR
         );
         final long id = Long.parseLong(req.getParameter("id"));
-        final List<TaskGetByAdminDTO> responseData = service.getTaskByAdmin(auth, id);
+        final List<TaskGetByAdminResponseDTO> responseData = service.getTaskByAdmin(auth, id);
         resp.setContentType(ContentTypes.APPLICATION_JSON);
         resp.getWriter().write(gson.toJson(responseData));
     }
