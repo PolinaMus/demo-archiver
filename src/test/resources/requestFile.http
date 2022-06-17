@@ -11,7 +11,7 @@ Content-Type: book.pdf
 --WebAppBoundary--
 
 ### Task status
-GET https://localhost:9999/tasks.getById?id=300f861c-c736-40b2-b3a9-fb6bcbffe334
+GET https://localhost:9999/tasks.getById?id=9e8cd224-6821-438c-9a89-ecc1e7f4af61
 Authorization: Bearer {{token}}
 
 ### All tasks status By User
@@ -19,7 +19,7 @@ GET https://localhost:9999/tasks.getAllByUserId
 Authorization: Bearer {{token}}
 
 ### Get Zip-archive
-GET https://localhost:9999/tasks.getResultById?id=300f861c-c736-40b2-b3a9-fb6bcbffe334
+GET https://localhost:9999/tasks.getResultById?id=9e8cd224-6821-438c-9a89-ecc1e7f4af61
 Authorization: Bearer {{token}}
 
 ### Get All Tasks of Users by Admin
@@ -29,5 +29,5 @@ GET https://localhost:9999/tasks.getAll
 GET https://localhost:9999/tasks.getTaskByAdmin?id=4
 
 ### Admin Download File by User Id
-GET https://localhost:9999/tasks.getFileById?id=300f861c-c736-40b2-b3a9-fb6bcbffe334
+GET https://localhost:9999/tasks.getFileById?id=9e8cd224-6821-438c-9a89-ecc1e7f4af61
 

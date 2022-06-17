@@ -10,7 +10,7 @@ POST https://localhost:9999/users.register
 Content-Type: application/json
 
 {
-  "login": "dasha",
+  "login": "pasha",
   "password": "secret"
 }
 
@@ -23,7 +23,7 @@ POST https://localhost:9999/users.login
 Content-Type: application/json
 
 {
-  "login": "dasha",
+  "login": "pasha",
   "password": "secret"
 }
 

@@ -43,7 +43,7 @@ public class UserService {
 
         final KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         final byte[] encodedKeyBytes = Files.readAllBytes(Paths.get(
-                Optional.ofNullable(System.getenv("SIGN_KEY")).orElse("C:\\Users\\Apolena\\Desktop\\IT Academy 2 уровень\\17 лекция\\tomcat-embed\\sign.key")
+                Optional.ofNullable(System.getenv("SIGN_KEY")).orElse("C:\\Users\\Apolena\\Desktop\\IT Academy 2 уровень\\17 лекция\\archiver\\sign.key")
         ));
         final byte[] keyBytes = Base64.getMimeDecoder().decode(encodedKeyBytes);
         final PrivateKey signKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(

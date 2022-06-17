@@ -31,7 +31,7 @@ public class BearerAuthenticationFilter extends HttpFilter {
         try {
             final KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             final byte[] encodedKeyBytes = Files.readAllBytes(Paths.get(
-                    Optional.ofNullable(System.getenv("VERIFY_KEY")).orElse("C:\\Users\\Apolena\\Desktop\\IT Academy 2 уровень\\17 лекция\\tomcat-embed\\verify.key")
+                    Optional.ofNullable(System.getenv("VERIFY_KEY")).orElse("C:\\Users\\Apolena\\Desktop\\IT Academy 2 уровень\\17 лекция\\archiver\\verify.key")
             ));
             final byte[] keyBytes = Base64.getMimeDecoder().decode(encodedKeyBytes);
             final PublicKey publicKey = keyFactory.generatePublic(new X509EncodedKeySpec(keyBytes));
